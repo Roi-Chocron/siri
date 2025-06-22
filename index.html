@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>עוזר קולי</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex; /* Use flexbox for body */
+      flex-direction: column; /* Stack content vertically */
+      min-height: 100vh; /* Ensure full viewport height */
+      justify-content: flex-end; /* Push content to bottom */
+      padding: 1rem; /* Consistent padding around the app */
+    }
+    .glass {
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .btn-animated {
+      transition: all 0.3s ease-in-out;
+    }
+    .btn-animated:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    }
+    /* Style for user messages */
+    .user-message {
+      background-color: #2a61a0; /* Darker blue for user */
+      color: white;
+      align-self: flex-end; /* Align to the right */
+      border-bottom-right-radius: 4px; /* Sharper corner */
+      border-bottom-left-radius: 16px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    /* Style for system responses */
+    .system-response {
+      background-color: #334155; /* Dark gray for system */
+      color: white;
+      align-self: flex-start; /* Align to the left */
+      border-bottom-left-radius: 4px; /* Sharper corner */
+      border-bottom-right-radius: 16px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    /* Base style for action messages */
+    .action-message {
+      color: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 16px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem; /* Equivalent to gap-3 in Tailwind */
+      padding: 0.75rem; /* Equivalent to p-3 in Tailwind */
+      max-width: 80%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    /* Specific style for music action messages */
+    .music-action-message {
+      background-color: #1a2b4b; /* Darker blue/purple for music */
+    }
+    /* Style for alert box */
+    .alert-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1000;
+      display: none; /* Hidden by default */
+    }
+
+    /* Custom Scrollbar Styling */
+    #messagesContainer::-webkit-scrollbar {
+      width: 10px;
+    }
+    #messagesContainer::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    #messagesContainer::-webkit-scrollbar-thumb {
+      background: #4a90e2; 
+      border-radius: 10px;
+    }
+    #messagesContainer::-webkit-scrollbar-thumb:hover {
+      background: #7bd4f8; 
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+  <div class="flex flex-col w-full max-w-4xl flex-grow items-center justify-end">
+    <!-- Chat messages display area -->
+    <div id="messagesContainer" class="flex flex-col gap-3 p-4 w-full overflow-y-auto max-h-[calc(100vh-160px)]">
+      <!-- Messages will be added dynamically by JS -->
+    </div>
+
+    <!-- Input and buttons area -->
+    <footer class="glass p-4 rounded-2xl w-full max-w-4xl mt-4">
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+        <input id="textInput" type="text" placeholder="מה תרצה שאבצע?"
+          class="flex-1 p-4 text-lg rounded-xl border border-gray-700 bg-white bg-opacity-10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 shadow-inner" />
+
+        <div class="flex gap-2">
+          <button onclick="sendMessage()"
+            class="btn-animated bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2">
+            <i class="ph ph-paper-plane"></i> שלח
+          </button>
+
+          <button onclick="startVoiceInput()"
+            class="btn-animated bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2">
+            <i class="ph ph-microphone"></i> דבר
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Custom Alert Box -->
+  <div id="customAlert" class="alert-box">
+    <p id="alertMessage"></p>
+    <button onclick="hideAlert()" class="mt-4 px-4 py-2 bg-blue-500 rounded-md text-white">אישור</button>
+  </div>
+
+  <script>
+    const messagesContainer = document.getElementById('messagesContainer');
+    const textInput = document.getElementById('textInput');
+    
+    // Function to display custom alert
+    function showAlert(message) {
+      document.getElementById('alertMessage').innerText = message;
+      document.getElementById('customAlert').style.display = 'block';
+    }
+
+    // Function to hide custom alert
+    function hideAlert() {
+      document.getElementById('customAlert').style.display = 'none';
+    }
+
+    /**
+     * Adds a single message div to the chat display.
+     * @param {string} htmlContent - The inner HTML of the message div.
+     * @param {string} type - 'user' or 'system'. 'system' will be used for all non-user messages.
+     */
+    function addMessage(htmlContent, type) {
+        const messageDiv = document.createElement('div');
+        // Add base styling common to all messages
+        messageDiv.classList.add('p-3', 'rounded-xl', 'shadow-md', 'max-w-[80%]');
+        
+        if (type === 'user') {
+            messageDiv.classList.add('user-message');
+            messageDiv.innerHTML = `<p>${htmlContent}</p>`;
+        } else {
+            // For system messages, the content is already a full HTML div.
+            // We just need to add it to the container.
+            // A temporary element is used to parse the string into an HTML element.
+            const temp = document.createElement('div');
+            temp.innerHTML = htmlContent.trim();
+            const actualMessageElement = temp.firstElementChild;
+            
+            // Append the fully-formed element to the container.
+            messagesContainer.appendChild(actualMessageElement);
+        }
+
+        if (type === 'user') {
+          messagesContainer.appendChild(messageDiv);
+        }
+        
+        // Scroll to the bottom to show the latest message
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    /**
+     * **[MODIFIED]**
+     * Process server response that contains multiple HTML divs separated by '|||'
+     * and adds each as a separate message to the chat.
+     * @param {string} responseText - The raw HTML string from the server.
+     */
+    function processServerResponse(responseText) {
+      // Split the response by our custom delimiter '|||'.
+      const divs = responseText.split('|||').map(s => s.trim()).filter(Boolean);
+      
+      divs.forEach(html => {
+        // Add each HTML block as a separate system message.
+        addMessage(html, 'system');
+      });
+    }
+
+    /**
+     * Handles sending a message from the text input.
+     */
+    async function sendMessage() {
+        const text = textInput.value.trim();
+        if (!text) return;
+
+        addMessage(text, 'user');
+        textInput.value = '';
+
+        try {
+          const resp = await fetch('http://localhost:8001/send', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text })
+          });
+
+          if (!resp.ok) throw new Error(`Server error: Status ${resp.status}`);
+
+          const data = await resp.json();
+
+          // Check if the response text contains our special delimiter or starts with a div.
+          // This indicates it's a structured HTML response.
+          if (typeof data.text === 'string' && (data.text.includes('|||') || data.text.trim().startsWith('<div'))) {
+            processServerResponse(data.text);
+          } else {
+            // It's a simple text response, wrap it in a standard system-response div.
+            const simpleResponseHtml = `
+              <div class="system-response max-w-[80%] p-3 rounded-xl shadow-md">
+                <p>${data.text}</p>
+              </div>`;
+            addMessage(simpleResponseHtml, 'system');
+          }
+        } catch (err) {
+          showAlert('שגיאה בתקשורת עם השרת: ' + err.message);
+        }
+    }
+    
+    // Add event listener for the 'Enter' key
+    textInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent default action (like form submission)
+        sendMessage();
+      }
+    });
+
+    /**
+     * Initiates voice input using the Web Speech API.
+     */
+    function startVoiceInput() {
+      if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        showAlert('דפדפן זה אינו תומך בזיהוי קולי.');
+        return;
+      }
+      
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'he-IL';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        textInput.placeholder = "מאזין...";
+      };
+
+      recognition.onend = () => {
+        textInput.placeholder = "מה תרצה שאבצע?";
+      };
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        textInput.value = transcript;
+        sendMessage(); // Automatically send the recognized text
+      };
+
+      recognition.onerror = function(event) {
+        showAlert("שגיאה בזיהוי קולי: " + event.error);
+      };
+
+      recognition.start();
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,930 @@
+[
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. חיפוש באינטרנט הוא פעולה חוקית: כאשר המשתמש מבקש לחפש משהו באינטרנט, יש להרכיב URL חיפוש מלא בגוגל (https://www.google.com/search?q=...) עם מחרוזת החיפוש המקודדת, ולהפעיל open_website עם ה-URL הזה.\n\nדוגמה:\nשאלה: תחפש 'מתן פרץ' באינטרנט!\nתשובה: מחפש 'מתן פרץ' באינטרנט.\n!@#$ open_website(\"https://www.google.com/search?q=%D7%9E%D7%AA%D7%9F+%D7%A4%D7%A8%D7%A5\") !@#$\n\nכאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאתה רשאי להפעיל כל פקודת CMD חוקית, כולל פעולות על קבצים (כגון יצירה, מחיקה, העתקה, שינוי שם וכו'). אם לא סופק שם קובץ, המצא שם מתאים.\n\nדוגמה:\nשאלה: תיצור קובץ html ריק בשולחן עבודה עם שם שאתה תמציא לובאמצעות פקודת CMD\nתשובה: יוצר קובץ html ריק בשם myfile123.html בשולחן העבודה.\n!@#$ run_cmd(\"echo. > C:\\Users\\USERNAME\\Desktop\\myfile123.html\") !@#$\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תחפש 'מתן פרץ' באינטרנט!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "מחפש 'מתן פרץ' באינטרנט.\n\n!@#$ open_website(\"https://www.google.com/search?q=%D7%9E%D7%AA%D7%9F+%D7%A4%D7%A8%D7%A6\") !@#$"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תפעיל את השיר מלכת השושנים של עדן בן זקן!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מנגן את השיר 'מלכת השושנים' של עדן בן זקן ב-Spotify.\n\n!@#$ play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\") !@#$"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תפתח את ויקיפדיה!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני פותח את ויקיפדיה.\n\n!@#$ open_website(\"https://www.wikipedia.org\") !@#$"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\ndecrease_brightness()\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתחפש \"מתן פרץ\" באינטרנט!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "מחפש \"מתן פרץ\" באינטרנט.\n\n!@#$ open_website(\"https://www.google.com/search?q=%D7%9E%D7%AA%D7%9F+%D7%A4%D7%A8%D7%A6\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\ndecrease_brightness()\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתחפש ביוטיוב עדן בן זקן"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מחפש \"עדן בן זקן\" ביוטיוב.\n\n!@#$ open_website(\"https://www.youtube.com/results?search_query=%D7%A2%D7%93%D7%9F+%D7%91%D7%9F+%D7%96%D7%A7%D7%9F\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\ndecrease_brightness()\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתחפש בויקיפדיה נפוליאון"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מחפש מידע על נפוליאון בוויקיפדיה.\n\n!@#$ open_website(\"https://en.wikipedia.org/wiki/Napoleon\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\ndecrease_brightness()\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתחפש  את הערך בויקיפדיה נפוליאון אבל את הערך בעברית!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מחפש את הערך על נפוליאון בוויקיפדיה העברית.\n\n!@#$ open_website(\"https://he.wikipedia.org/wiki/%D7%A0%D7%A4%D7%95%D7%9C%D7%99%D7%90%D7%95%D7%9F\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\ndecrease_brightness()\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיכנס לאתר: http://localhost:8002/index.html"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני נכנס לאתר http://localhost:8002/index.html\n\n!@#$ open_website(\"http://localhost:8002/index.html\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתציג את רשימת התיקיות בכונן C באמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מציג את רשימת התיקיות בכונן C באמצעות פקודת CMD.\n\n!@#$ run_cmd(\"dir C:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ html בשולחן עבודה"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תיצור קובץ html בשולחן עבודה באמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תיצור קובץ html ריק בשולחן עבודה  עם שם שאתה תמציא לובאמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תיצור קובץ html ריק בשולחן עבודה עם שם שאתה תמציא לובאמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "תיצור קובץ html ריק בשולחן עבודה עם שם שאתה תמציא לו באמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ html ריק בשולחן עבודה עם שם שאתה תמציא לו באמצעות פקודת CMD"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ HTML ריק בשם `new_file.html` בשולחן העבודה.\n\n!@#$ run_cmd(\"echo. > %userprofile%\\Desktop\\new_file.html\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם `print.py` שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n\n!@#$ run_cmd(\"echo print('hello world');input() > %userprofile%\\Desktop\\print.py\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם `print.py` שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n!@#$ run_cmd(\"echo print('hello world');input() > %userprofile%\\\\Desktop\\\\print.py\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם print.py שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n!@#$ run_cmd(\"echo print('hello world');input() > %userprofile%\\\\Desktop\\\\print.py\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם print.py שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n!@#$ run_cmd(\"echo print('hello world');input() > \\\"%USERPROFILE%\\\\Desktop\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם print.py שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n!@#$ run_cmd(\"echo print('hello world');input()  > \\\"%UserProfile%\\\\Desktop\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון בשם print.py שפשוט ידפיס hello world וישאיר את החלון פתוח שהוא לא יסגר!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון בשם print.py שמדפיס \"hello world\" ומשאיר את החלון פתוח.\n\n!@#$ run_cmd(\"echo print('hello world'); input() > \\\"%USERPROFILE%\\\\Desktop\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir C:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ טקסט ריק בהורדות בשם \"roi7741.txt\"!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ טקסט ריק בשם roi7741.txt בתיקיית ההורדות.\n\n!@#$ run_cmd(\"echo.> %userprofile%\\Downloads\\roi7741.txt\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ בשם print.py בשולחן עבודה!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ בשם print.py בשולחן העבודה.  שים לב שהקובץ יהיה ריק.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Desktop\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ בשם print.py בהורדות!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ בשם print.py בתיקיית ההורדות. הקובץ יהיה ריק.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Downloads\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ בשם print.py בהורדות!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ בשם print.py בתיקיית ההורדות. הקובץ יהיה ריק.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Downloads\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ בשם print.py בהורדות!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ בשם print.py בתיקיית ההורדות. הקובץ יהיה ריק.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Downloads\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nעכשיו תערוך את print.py ותעשה שהוא יכתוב \"Hello World\" וישאיר את החלון פתוח!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני לא יכול לערוך קבצים ישירות.  אני יכול ליצור קובץ print.py חדש עם הקוד שביקשת.\n\n\n!@#$ run_cmd(\"echo print('Hello World');input() > \\\"%USERPROFILE%\\\\Downloads\\\\print.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת dir ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nאיזה תיקיות יש בכונן C? תריץ פקודת DIR בCMD!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את פקודת `dir` ב-CMD כדי להציג את רשימת התיקיות בכונן C:\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתחפש מתן פרץ באינטרנט!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מחפש \"מתן פרץ\" באינטרנט.\n\n!@#$ open_website(\"https://www.google.com/search?q=%D7%9E%D7%AA%D7%9F+%D7%A4%D7%A8%D7%A6\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתפעיל את השיר באמפרים של נס וסטילה בספוטיפי!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מנסה להפעיל את השיר \"באמפרים\" של נס וסטילה ב-Spotify.  שימו לב שאם השיר לא זמין או שהשם אינו מדויק, הפעולה עשויה להיכשל.\n\n!@#$ play_song(\"נס וסטילה\", \"באמפרים\", \"Spotify\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתיצור קובץ פייתון ריק במסמכים בשם roi.py"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ פייתון ריק בשם roi.py בתיקיית המסמכים.\n\n!@#$ run_cmd(\"type nul > \\\"%USERPROFILE%\\\\Documents\\\\roi.py\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בשולחן עבודה!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מציג את רשימת הקבצים בשולחן העבודה.\n\n!@#$ run_cmd(\"dir \\\"%USERPROFILE%\\\\Desktop\\\"\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בכונן C!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מציג את רשימת הקבצים בכונן C.  שימו לב שפעולה זו עשויה לקחת זמן רב, בהתאם לגודל הכונן.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בכונן C!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מציג את רשימת הקבצים והתיקיות בכונן C.  שימו לב שפעולה זו עשויה לקחת זמן רב, בהתאם לגודל הכונן.  יתכן שתצטרכו לגלול כדי לראות את כל התוצאות.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בכונן C בצורת רשימה!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מצטער, אבל אני לא יכול לספק רשימה מסודרת של קבצים בכונן C בצורה ישירה.  הפקודה `dir` מציגה את המידע בצורה טבלאית, ואין לי יכולת לעבד את הפלט שלה לרשימה מסודרת.  אני יכול להציג את הפלט של פקודת `dir` כפי שהיא.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בכונן C בצורת רשימה ממוספרת!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מצטער, אבל אני לא יכול לספק רשימה ממוספרת של קבצים בכונן C בצורה ישירה.  הפקודה `dir` מציגה את המידע בצורה טבלאית, ואין לי יכולת לעבד את הפלט שלה לרשימה ממוספרת.  אני יכול להציג את הפלט של פקודת `dir` כפי שהיא.  כדי לקבל רשימה ממוספרת, תצטרך להשתמש בכלי אחר או לכתוב סקריפט שיעבד את הפלט של `dir`.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתן לי את רשימת הקבצים בכונן C בטבלה עם שם הקובץ תאריך השינוי האחרון ושעת השינוי האחרון!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מצטער, אבל אני לא יכול לספק רשימה מסודרת של קבצים בכונן C עם שם הקובץ, תאריך ושעת השינוי האחרון בצורה של טבלה מסודרת.  הפקודה `dir` מציגה את המידע בצורה טבלאית, אך אין לי יכולת לעבד את הפלט שלה וליצור טבלה מסודרת יותר.  אני יכול להציג את הפלט של פקודת `dir` כפי שהוא.  כדי לקבל את המידע בצורה מסודרת יותר, תצטרך להשתמש בכלי אחר או לכתוב סקריפט שיעבד את הפלט של `dir`.\n\n!@#$ run_cmd(\"dir c:\") !@#$\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nכמה זה 1+1?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "1 + 1 = 2\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתכתוב קוד פייתון שכותב 5 פעמים \"Hello World\"!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני יוצר קובץ בשם hello_world.py עם קוד פייתון שכותב \"Hello World\" חמש פעמים.\n\n!@#$ run_cmd(\"echo for i in range(5):\\n    print('Hello World!') > \\\"%USERPROFILE%\\\\Desktop\\\\hello_world.py\\\"\") !@#$\n\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתכתוב קוד פייתון שכותב 5 פעמים \"Hello World\"! פשוט תענה לי, אל תיצור קבצים!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "קוד פייתון שכותב \"Hello World\" חמש פעמים:\n\n```python\nfor i in range(5):\n    print(\"Hello World!\")\n```\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתכתוב קוד פייתון שכותב 5 פעמים \"Hello World\"! פשוט תענה לי, אל תיצור קבצים!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "קוד פייתון שכותב \"Hello World\" חמש פעמים:\n\n```python\nfor i in range(5):\n    print(\"Hello World!\")\n```\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתכתוב קוד פייתון שכותב 5 פעמים \"Hello World\"! פשוט תענה לי, אל תיצור קבצים!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "קוד פייתון שכותב \"Hello World\" חמש פעמים:\n\n```python\nfor i in range(5):\n    print(\"Hello World!\")\n```\n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nתכתוב קוד פייתון שכותב 5 פעמים \"Hello World\"! פשוט תענה לי, אל תיצור קבצים!"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "קוד פייתון שכותב \"Hello World\" חמש פעמים:\n\n```python\nfor i in range(5):\n    print(\"Hello World!\")\n```\n"
+      }
+    ]
+  }
+]
