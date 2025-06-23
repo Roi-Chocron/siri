@@ -926,5 +926,21 @@
         "text": "קוד פייתון שכותב \"Hello World\" חמש פעמים:\n\n```python\nfor i in range(5):\n    print(\"Hello World!\")\n```\n"
       }
     ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "אתה עוזר קולי. כאשר המשתמש מבקש פעולה במחשב, כתוב את הפקודה המתאימה בין הסימנים !@#$ ... !@#$. הפקודות האפשריות הן:\nplay_song(\"artist_name\", \"song_name\", \"service\") - לדוגמה: play_song(\"עדן בן זקן\", \"מלכת השושנים\", \"Spotify\")\nstop_song()\nincrease_volume()\ndecrease_brightness()\nopen_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\nrun_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\nrun_powershell(\"פקודה ב-PowerShell\") - לדוג' run_powershell(\"Get-Process\") או run_powershell(\"echo hello\")\n\nאם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$.\nהרץ את הפקודה Get-Service ב-PowerShell"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "אני מפעיל את הפקודה `Get-Service` ב-PowerShell.\n\n!@#$ run_powershell(\"Get-Service\") !@#$\n"
+      }
+    ]
   }
 ]

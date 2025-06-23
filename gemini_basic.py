@@ -28,6 +28,7 @@ INSTRUCTION = (
     "decrease_brightness()\n"
     "open_website(כתובת_אתר או שם אתר) - לדוג' open_website(\"https://www.google.com\")\n"
     "run_cmd(\"פקודה ב-CMD\") - לדוג' run_cmd(\"dir\") או run_cmd(\"echo hello\")\n"
+    "run_powershell(\"פקודה ב-PowerShell\") - לדוג' run_powershell(\"Get-Process\") או run_powershell(\"echo hello\")\n"
     "\n"
     "אם המשתמש מבקש פעולה, כתוב תשובה מילולית למשתמש, ואחריה את הפקודה בין הסימנים !@#$ ... !@#$."
 )
